@@ -4,9 +4,9 @@
     "version": "0.0.0",
     "main": "dist/electron-main/index.js",
     "scripts": {
-        "dev": "vite",
-        "build": "vite build && electron-builder",
-        "preview": "vite preview"
+        "dev": "vite --mode dev",
+        "dist": "vite build --mode dist && electron-builder",
+        "release": "vite build --mode release && electron-builder"
     },
     "dependencies": {
         "vue": "^3.2.25"
