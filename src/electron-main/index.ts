@@ -1,7 +1,9 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, Menu } from "electron";
 import path from "path";
 
 function createWindow() {
+    Menu.setApplicationMenu(null);
+
     const win = new BrowserWindow({
         webPreferences: {
             contextIsolation: false, // 是否开启隔离上下文

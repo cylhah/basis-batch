@@ -9,6 +9,7 @@
         "release": "vite build --mode release && electron-builder"
     },
     "dependencies": {
+        "element-plus": "2.1.10",
         "vue": "^3.2.25"
     },
     "devDependencies": {
