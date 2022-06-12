@@ -69,7 +69,7 @@
         },
         "extraResources": [
             {
-                "from": "exe/basisu.exe",
+                "from": "src/electron-main/static/exe/basisu.exe",
                 "to": "exe/basisu.exe"
             }
         ]
