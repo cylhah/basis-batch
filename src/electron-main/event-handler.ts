@@ -5,8 +5,6 @@ import { MStore } from "./common/store";
 export function initEventHandler() {
     ipcMain.on("runBasis", (event, arg) => {
         const { inputPath, outputPath } = arg;
-        console.log(arg, inputPath);
-        // event.returnValue = "ok";
         batchBasis(inputPath, outputPath);
     });
 }

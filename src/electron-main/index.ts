@@ -21,7 +21,6 @@ function createWindow() {
 
     if (app.isPackaged) {
         win.loadFile(path.join(__dirname, "../index.html"));
-        win.webContents.openDevTools();
     } else {
         let url = "http://localhost:3000"; // 本地启动的vue项目路径
         win.loadURL(url);

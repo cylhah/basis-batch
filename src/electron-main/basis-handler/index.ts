@@ -1,12 +1,10 @@
+import { exec } from "child_process";
 import { FSUtils } from "../common/FSUtils";
 import { StaticPathHandler } from "../common/static-path-handler";
 import { sendLog } from "../event-handler";
-
-const { execSync } = require("child_process");
-const path = require("path");
+import path from "path";
 
 export function batchBasis(inputPath: string, outputPath: string) {
-    outputPath = path.resolve(__dirname, outputPath);
     let basisuExePath = StaticPathHandler.handleStaticPath("exe/basisu.exe");
     sendLog("batchBasis:" + __dirname + basisuExePath);
     // console.log("输入文件路径:", inputPath);
@@ -23,9 +21,9 @@ export function batchBasis(inputPath: string, outputPath: string) {
             for (let i = 0; i < paths.length; i++) {
                 let item = paths[i];
                 let fullPath = path.resolve(inputPath, item);
-                let execRes = execSync(`${basisuExePath} ${fullPath} -no_ktx -etc1_only`);
-                sendLog(execRes.toString());
-                console.log(execRes.toString());
+                exec(`${basisuExePath} ${fullPath} -no_ktx -etc1_only -output_path ${outputPath}`);
+                // sendLog(execRes.toString());
+                // console.log(execRes.toString());
                 // console.log("已转换文件:", fullPath);
                 // console.log("输出到：", outputPath);
             }
