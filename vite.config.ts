@@ -1,5 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+// import copy from "rollup-plugin-copy";
+// import { viteStaticCopy } from "vite-plugin-static-copy";
 import * as path from "path";
 import electron from "vite-plugin-electron";
 import electronRenderer from "vite-plugin-electron/renderer";
@@ -20,6 +22,6 @@ export default defineConfig({
         polyfillExports(),
     ],
     build: {
-        emptyOutDir: false, // 默认情况下，若 outDir 在 root 目录下，则 Vite 会在构建时清空该目录
+        // emptyOutDir: false, // 默认情况下，若 outDir 在 root 目录下，则 Vite 会在构建时清空该目录
     },
 });
