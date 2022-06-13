@@ -8,7 +8,7 @@ function createWindow() {
 
     const win = new BrowserWindow({
         width: 800,
-        height: 600,
+        height: 300,
         webPreferences: {
             devTools: true,
             contextIsolation: false, // 是否开启隔离上下文
