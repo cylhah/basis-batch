@@ -3,7 +3,6 @@ import { ref } from "vue";
 import { sendEvent } from "../common/event-dispatcher";
 const inputPath = ref("");
 const outputPath = ref("");
-const tip = ref("test");
 
 function onTransClick() {
     sendEvent("runBasis", { inputPath: inputPath.value, outputPath: outputPath.value });
@@ -23,9 +22,6 @@ function onTransClick() {
         </div>
         <div class="menus-container">
             <el-button type="primary" @click="onTransClick">开始转换</el-button>
-        </div>
-        <div class="tip-container">
-            <div class="tip">{{ tip }}</div>
         </div>
     </div>
 </template>

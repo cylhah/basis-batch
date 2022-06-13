@@ -6,7 +6,7 @@ import path from "path";
 
 export function batchBasis(inputPath: string, outputPath: string) {
     let basisuExePath = StaticPathHandler.handleStaticPath("exe/basisu.exe");
-    sendLog("batchBasis:" + __dirname + basisuExePath);
+    // sendLog("batchBasis:" + __dirname + basisuExePath);
     // console.log("输入文件路径:", inputPath);
     // console.log("输出文件路径:", outputPath);
 
@@ -21,7 +21,13 @@ export function batchBasis(inputPath: string, outputPath: string) {
             for (let i = 0; i < paths.length; i++) {
                 let item = paths[i];
                 let fullPath = path.resolve(inputPath, item);
-                exec(`${basisuExePath} ${fullPath} -no_ktx -etc1_only -output_path ${outputPath}`);
+                exec(`${basisuExePath} ${fullPath} -no_ktx -etc1_only -output_path ${outputPath}`, (error, stdout, stderr) => {
+                    if (error) {
+                      console.error(`exec error: ${error}`);
+                      return;
+                    }
+                    console.log(`stdout: ${stdout}`);
+                  });
                 // sendLog(execRes.toString());
                 // console.log(execRes.toString());
                 // console.log("已转换文件:", fullPath);
@@ -30,7 +36,7 @@ export function batchBasis(inputPath: string, outputPath: string) {
         } catch (error) {
             console.log("发生错误");
             console.log(error);
-            sendLog(error);
+            // sendLog(error);
         }
     }
 }
